@@ -4,6 +4,10 @@
   "private": true,
   "dependencies": {
     "@redwoodjs/api": "8.4.0",
-    "@redwoodjs/graphql-server": "8.4.0"
+    "@redwoodjs/graphql-server": "8.4.0",
+    "puppeteer": "^23.6.1"
+  },
+  "devDependencies": {
+    "@types/puppeteer": "^7.0.4"
   }
 }
