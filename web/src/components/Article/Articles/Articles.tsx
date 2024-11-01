@@ -1,7 +1,7 @@
 import type {
-  DeletePostMutation,
-  DeletePostMutationVariables,
-  FindPosts,
+  DeleteArticleMutation,
+  DeleteArticleMutationVariables,
+  FindArticles,
 } from 'types/graphql'
 
 import { Link, routes } from '@redwoodjs/router'
@@ -9,24 +9,24 @@ import { useMutation } from '@redwoodjs/web'
 import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import { QUERY } from 'src/components/Post/PostsCell'
-import { timeTag, truncate } from 'src/lib/formatters'
+import { QUERY } from 'src/components/Article/ArticlesCell'
+import { truncate } from 'src/lib/formatters'
 
-const DELETE_POST_MUTATION: TypedDocumentNode<
-  DeletePostMutation,
-  DeletePostMutationVariables
+const DELETE_ARTICLE_MUTATION: TypedDocumentNode<
+  DeleteArticleMutation,
+  DeleteArticleMutationVariables
 > = gql`
-  mutation DeletePostMutation($id: Int!) {
-    deletePost(id: $id) {
+  mutation DeleteArticleMutation($id: String!) {
+    deleteArticle(id: $id) {
       id
     }
   }
 `
 
-const PostsList = ({ posts }: FindPosts) => {
-  const [deletePost] = useMutation(DELETE_POST_MUTATION, {
+const ArticlesList = ({ articles }: FindArticles) => {
+  const [deleteArticle] = useMutation(DELETE_ARTICLE_MUTATION, {
     onCompleted: () => {
-      toast.success('Post deleted')
+      toast.success('Article deleted')
     },
     onError: (error) => {
       toast.error(error.message)
@@ -38,9 +38,9 @@ const PostsList = ({ posts }: FindPosts) => {
     awaitRefetchQueries: true,
   })
 
-  const onDeleteClick = (id: DeletePostMutationVariables['id']) => {
-    if (confirm('Are you sure you want to delete post ' + id + '?')) {
-      deletePost({ variables: { id } })
+  const onDeleteClick = (id: DeleteArticleMutationVariables['id']) => {
+    if (confirm('Are you sure you want to delete article ' + id + '?')) {
+      deleteArticle({ variables: { id } })
     }
   }
 
@@ -50,40 +50,42 @@ const PostsList = ({ posts }: FindPosts) => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Title</th>
-            <th>Body</th>
-            <th>Created at</th>
+            <th>Article url</th>
+            <th>Data source id</th>
+            <th>Content</th>
+            <th>Raw html</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
-          {posts.map((post) => (
-            <tr key={post.id}>
-              <td>{truncate(post.id)}</td>
-              <td>{truncate(post.title)}</td>
-              <td>{truncate(post.body)}</td>
-              <td>{timeTag(post.createdAt)}</td>
+          {articles.map((article) => (
+            <tr key={article.id}>
+              <td>{truncate(article.id)}</td>
+              <td>{truncate(article.articleUrl)}</td>
+              <td>{truncate(article.dataSourceId)}</td>
+              <td>{truncate(article.content)}</td>
+              <td>{truncate(article.rawHtml)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link
-                    to={routes.post({ id: post.id })}
-                    title={'Show post ' + post.id + ' detail'}
+                    to={routes.article({ id: article.id })}
+                    title={'Show article ' + article.id + ' detail'}
                     className="rw-button rw-button-small"
                   >
                     Show
                   </Link>
                   <Link
-                    to={routes.editPost({ id: post.id })}
-                    title={'Edit post ' + post.id}
+                    to={routes.editArticle({ id: article.id })}
+                    title={'Edit article ' + article.id}
                     className="rw-button rw-button-small rw-button-blue"
                   >
                     Edit
                   </Link>
                   <button
                     type="button"
-                    title={'Delete post ' + post.id}
+                    title={'Delete article ' + article.id}
                     className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(post.id)}
+                    onClick={() => onDeleteClick(article.id)}
                   >
                     Delete
                   </button>
@@ -97,4 +99,4 @@ const PostsList = ({ posts }: FindPosts) => {
   )
 }
 
-export default PostsList
+export default ArticlesList
