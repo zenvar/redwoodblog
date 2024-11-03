@@ -15,6 +15,8 @@ export const QUERY: TypedDocumentNode<FindArticles, FindArticlesVariables> =
       articles {
         id
         articleUrl
+        time
+        header
         dataSourceId
         content
         rawHtml

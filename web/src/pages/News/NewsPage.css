@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    Font-family: Helvetica, Tahoma, Arial, STXihei, “华文细黑”, “Microsoft YaHei”, “微软雅黑”, sans-serif
+}
+
+body {
+    background: linear-gradient(135deg, #f2f6fcee 0%, #fbf2f6dd 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 960px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.031);
+    /* 半透明 */
+    backdrop-filter: blur(10px);
+    /* 磨砂效果 */
+    animation: fadeIn 1s ease-out;
+    /* 淡入动画 */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    
+    animation: slideIn 0.6s ease-out;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: #333;
+}
+
+header p {
+    font-size: 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #666;
+    margin: 10px 0;
+}
+
+header a {
+    font-size: 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+
+.subscribe {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.subscribe input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.subscribe button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #504af4;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe button:hover {
+    background-color: #6e1af4;
+}
+
+.timeline {
+    border-left: 2px solid #ddd;
+    margin-top: 20px;
+    position: relative;
+}
+
+.timeline-item {
+    padding: 20px 0 20px 20px;
+    position: relative;
+}
+
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 20px;
+    width: 14px;
+    height: 14px;
+    background-color: #4e64e0;
+    border-radius: 50%;
+}
+
+.date {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.content {
+    padding: 10px;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 9px;
+}
+
+.content:hover {
+    transform: scale(1.02);
+    background-color: #afaac415;
+    box-shadow: 0 4px 10px rgba(194, 194, 194, 0.1);
+}
+
+.content h2 {
+    font-size: 1.2rem;
+    color: #252233e0;
+    margin-bottom: 10px;
+}
+
+.content p {
+    color: #2f293bc3;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    max-height: 80px; /* Limit the height of the content */
+    overflow: hidden;
+}
+
+.content a {
+    color: #523ffd;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.content a:hover {
+    text-decoration: underline;
+}
+
+.article-content {
+    padding: 25px;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333333;
+    font-family: "Noto Serif", "Source Serif Pro", serif; /* 优先使用衬线字体 */
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.article-content img {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+}
+
+/* 标题和小标题 */
+.article-content h2 {
+    font-size: 1.6rem;
+    color: #222;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.article-content h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+/* 正文段落 */
+.article-content p {
+    margin-bottom: 1.5em;
+}
+
+/* 引用样式 */
+.article-content blockquote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    border-left: 4px solid #007bff;
+    padding-left: 15px;
+    margin: 1.5em 0;
+}
+
+/* 列表样式 */
+.article-content ul,
+.article-content ol {
+    margin: 1em 0;
+    padding-left: 1.5em;
+}
+
+.article-content ul li,
+.article-content ol li {
+    margin-bottom: 0.5em;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

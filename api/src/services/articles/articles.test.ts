@@ -32,6 +32,8 @@ describe('articles', () => {
     const result = await createArticle({
       input: {
         articleUrl: 'String',
+        time: 'String',
+        header: 'String',
         dataSourceId: 'String',
         content: 'String',
         rawHtml: 'String',
@@ -39,6 +41,8 @@ describe('articles', () => {
     })
 
     expect(result.articleUrl).toEqual('String')
+    expect(result.time).toEqual('String')
+    expect(result.header).toEqual('String')
     expect(result.dataSourceId).toEqual('String')
     expect(result.content).toEqual('String')
     expect(result.rawHtml).toEqual('String')

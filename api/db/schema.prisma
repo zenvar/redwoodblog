@@ -20,6 +20,8 @@ generator client {
 model article {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   articleUrl  String   
+  time String
+  header String
   dataSourceId String
   content     String
   rawHtml     String

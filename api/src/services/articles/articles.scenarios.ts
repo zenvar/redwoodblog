@@ -6,6 +6,8 @@ export const standard = defineScenario<Prisma.articleCreateArgs>({
     one: {
       data: {
         articleUrl: 'String',
+        time: 'String',
+        header: 'String',
         dataSourceId: 'String',
         content: 'String',
         rawHtml: 'String',
@@ -14,6 +16,8 @@ export const standard = defineScenario<Prisma.articleCreateArgs>({
     two: {
       data: {
         articleUrl: 'String',
+        time: 'String',
+        header: 'String',
         dataSourceId: 'String',
         content: 'String',
         rawHtml: 'String',

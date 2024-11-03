@@ -20,6 +20,8 @@ export const QUERY: TypedDocumentNode<EditArticleById> = gql`
     article: article(id: $id) {
       id
       articleUrl
+      time
+      header
       dataSourceId
       content
       rawHtml
@@ -35,6 +37,8 @@ const UPDATE_ARTICLE_MUTATION: TypedDocumentNode<
     updateArticle(id: $id, input: $input) {
       id
       articleUrl
+      time
+      header
       dataSourceId
       content
       rawHtml

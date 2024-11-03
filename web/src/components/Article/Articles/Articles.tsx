@@ -51,6 +51,8 @@ const ArticlesList = ({ articles }: FindArticles) => {
           <tr>
             <th>Id</th>
             <th>Article url</th>
+            <th>Time</th>
+            <th>Header</th>
             <th>Data source id</th>
             <th>Content</th>
             <th>Raw html</th>
@@ -62,6 +64,8 @@ const ArticlesList = ({ articles }: FindArticles) => {
             <tr key={article.id}>
               <td>{truncate(article.id)}</td>
               <td>{truncate(article.articleUrl)}</td>
+              <td>{truncate(article.time)}</td>
+              <td>{truncate(article.header)}</td>
               <td>{truncate(article.dataSourceId)}</td>
               <td>{truncate(article.content)}</td>
               <td>{truncate(article.rawHtml)}</td>

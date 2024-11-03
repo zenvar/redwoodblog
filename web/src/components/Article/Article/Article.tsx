@@ -62,6 +62,14 @@ const Article = ({ article }: Props) => {
               <td>{article.articleUrl}</td>
             </tr>
             <tr>
+              <th>Time</th>
+              <td>{article.time}</td>
+            </tr>
+            <tr>
+              <th>Header</th>
+              <td>{article.header}</td>
+            </tr>
+            <tr>
               <th>Data source id</th>
               <td>{article.dataSourceId}</td>
             </tr>

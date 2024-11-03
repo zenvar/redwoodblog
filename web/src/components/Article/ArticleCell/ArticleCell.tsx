@@ -16,6 +16,8 @@ export const QUERY: TypedDocumentNode<
     article: article(id: $id) {
       id
       articleUrl
+      time
+      header
       dataSourceId
       content
       rawHtml

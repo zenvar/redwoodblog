@@ -2,6 +2,8 @@ export const schema = gql`
   type Article {
     id: String!
     articleUrl: String!
+    time: String!
+    header: String!
     dataSourceId: String!
     content: String!
     rawHtml: String!
@@ -14,6 +16,8 @@ export const schema = gql`
 
   input CreateArticleInput {
     articleUrl: String!
+    time: String!
+    header: String!
     dataSourceId: String!
     content: String!
     rawHtml: String!
@@ -21,6 +25,8 @@ export const schema = gql`
 
   input UpdateArticleInput {
     articleUrl: String
+    time: String
+    header: String
     dataSourceId: String
     content: String
     rawHtml: String

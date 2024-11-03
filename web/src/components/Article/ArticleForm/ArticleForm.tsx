@@ -53,6 +53,42 @@ const ArticleForm = (props: ArticleFormProps) => {
         <FieldError name="articleUrl" className="rw-field-error" />
 
         <Label
+          name="time"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Time
+        </Label>
+
+        <TextField
+          name="time"
+          defaultValue={props.article?.time}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="time" className="rw-field-error" />
+
+        <Label
+          name="header"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Header
+        </Label>
+
+        <TextField
+          name="header"
+          defaultValue={props.article?.header}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="header" className="rw-field-error" />
+
+        <Label
           name="dataSourceId"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
